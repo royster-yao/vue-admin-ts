@@ -1,3 +1,4 @@
+const prettierConf = require('./.prettierrc.js')
 module.exports = {
   root: true,
   env: {
@@ -15,7 +16,12 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'no-extra-semi': 'warn',
+    'arrow-parens': ['error', 'as-needed'],
     quotes: [1, 'single'],
     'comma-dangle': [
       'error',
@@ -27,13 +33,6 @@ module.exports = {
         functions: 'never'
       }
     ],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'none',
-        semi: false
-      }
-    ]
+    'prettier/prettier': ['error', prettierConf]
   }
 }
